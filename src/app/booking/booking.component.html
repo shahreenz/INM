@@ -22,7 +22,7 @@
 
     <mat-form-field>
       <mat-label>Date of Birth*</mat-label>
-      <input matInput [matDatepicker]="dobPicker" formControlName="dob">
+      <input matInput [matDatepicker]="dobPicker" [max]="maxDateBirth"  formControlName="dob">
       <mat-datepicker-toggle matSuffix [for]="dobPicker"></mat-datepicker-toggle>
       <mat-datepicker #dobPicker></mat-datepicker>
       <mat-error *ngIf="bookingForm.get('dob')?.hasError('required') && submitted">
@@ -32,7 +32,7 @@
 
     <mat-form-field>
       <mat-label>Arrival Date*</mat-label>
-      <input matInput [matDatepicker]="arrivalPicker" formControlName="arrivalDate">
+      <input matInput [matDatepicker]="arrivalPicker" [max]="maxDate" formControlName="arrivalDate">
       <mat-datepicker-toggle matSuffix [for]="arrivalPicker"></mat-datepicker-toggle>
       <mat-datepicker #arrivalPicker></mat-datepicker>
       <mat-error *ngIf="bookingForm.get('arrivalDate')?.hasError('required') && submitted">

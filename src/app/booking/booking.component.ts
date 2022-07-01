@@ -14,16 +14,24 @@ import { Router } from '@angular/router';
     class: 'full-width'
   }
 })
+
+
+
 export class BookingComponent implements OnInit {
   public bookingForm: FormGroup;
   public submitted: boolean = false;
+  maxDate = new Date();
+  maxDateBirth = new Date();
 
   constructor(
     private formBuilder: FormBuilder,
     private snackBar: MatSnackBar,
     private router: Router,
     private inmateService: InmateService
-  ) {}
+ 
+  ) {
+    this.maxDateBirth.setMonth(this.maxDate.getMonth() - 12 * 18);
+  }
 
   public ngOnInit(): void {
     this.initialiseForm();
